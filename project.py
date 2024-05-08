@@ -21,15 +21,14 @@ def findEncodeings(image):
         encodeList.append(encode)
     return encodeList
 
-encodeListKnown = findEncodeings(images)    ## هنا بيضيف الصور والبيانات
+encodeListKnown = findEncodeings(images)
 
 cap = cv2.VideoCapture(0)
 
 while True:
     _, img = cap.read()
 
-    imgS = cv2.resize(img, (0,0), None, 0.25, 0.25)   ## لتصغير حجم الصوره
-    imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
+    imgS = cv2.resize(img, (0,0), None, 0.25, 0.25)
 
     faceCurentFrame = face_recognition.face_locations(imgS)
     encodeCurentFrame = face_recognition.face_encodings(imgS, faceCurentFrame)
